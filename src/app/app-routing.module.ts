@@ -11,6 +11,14 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'recupera-cuenta',
+    loadChildren: () => import('./recupera-cuenta/recupera-cuenta.module').then( m => m.RecuperaCuentaPageModule)
+  },
+  {
+    path: 'pagina-principal',
+    loadChildren: () => import('./pagina-principal/pagina-principal.module').then( m => m.PaginaPrincipalPageModule)
+  },
 ];
 
 @NgModule({
