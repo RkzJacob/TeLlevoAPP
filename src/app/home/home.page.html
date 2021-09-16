@@ -1,43 +1,54 @@
 <ion-header class="HEADER-LOGIN" [translucent]="true" >
-  <ion-toolbar>
-    <ion-title class="ion-text-center" size="small">
-      TeLlevoAPp
+  <ion-toolbar color="tertiary">
+    <ion-title class="ion-text-center" >
+      <ion-icon name="bus"></ion-icon>
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content CLASS="CONTENIDO-DEL-LOGIN">
-  <div   class="ion-padding-vertical">
-    <ion-card>
+<ion-content CLASS="CONTENIDO-DEL-LOGIN" color="dark" [fullscreen]="true" >
+  <div class="ion-padding-vertical ">
+    <ion-card color="medium">
       <ion-card-header>
-        <ion-card-title class="ion-text-center" color="warning">Login</ion-card-title>
+        <ion-card-title class="ion-text-center" >Login</ion-card-title>
       </ion-card-header>
           
-      <ion-card-content class="danger">
-        
-          <ion-list>
-            <ion-item>
-              <ion-label position="floating">Nombre de usuario</ion-label>
-              <ion-input  [(ngModel)]="NombreUser" type="text" ></ion-input>
+      <ion-card-content color="medium" >
+          <ion-list  color="medium">
+            <ion-item  color="medium">
+              <div class="ion-padding-vertical" >
+                    <mat-form-field  appearance="standard">
+                      <mat-label >Nombre usuario</mat-label>
+                      <input matInput  type="text" [(ngModel)]="NombreUser" >
+                      
+                    </mat-form-field>
+                    <mat-form-field  appearance="standard">
+                      <mat-label >Contraseña</mat-label>
+                      <input matInput  type="password" [(ngModel)]="Contrasena">
+                    </mat-form-field>
+              </div>
             </ion-item>
-            <ion-item>
-              <ion-label position="floating">Contraseña</ion-label>
-              <ion-input [(ngModel)]="Contrasena" type="password"></ion-input>
-            </ion-item>
+              
+              <div class="boton-position ion-padding-vertical color-form">
+                <button mat-raised-button color="primary" type="submit" (click)="animacion()">Iniciar sesión</button>
+              </div>
+
           </ion-list>
-          <ion-button color="tertiary" expand="full"  type="submit" (click)="loguear()">Iniciar sesión</ion-button>
-        
+          
       </ion-card-content>
+      
     </ion-card>
   </div>
+  
 
   <div class="ion-text-center">
       <ion-text (click)="recuperar()" color="primary">¿Olvidaste tu contraseña?</ion-text>
   </div>
   
+    
 </ion-content>
-<ion-footer class="ion-no-border">
-  <ion-toolbar>
+<ion-footer class="ion-no-border" >
+  <ion-toolbar color="tertiary">
     <ion-title></ion-title>
   </ion-toolbar>
 </ion-footer>

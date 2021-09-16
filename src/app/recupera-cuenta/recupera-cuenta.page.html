@@ -1,9 +1,48 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>RecuperaCuenta</ion-title>
+  <ion-toolbar class="ion-text-center">
+    <ion-title><ion-icon name="bus"></ion-icon></ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content color="light" [fullscreen]="true">
+  <div class="ion-padding-vertical ">
+    <ion-card >
+
+      <ion-card-header>
+        <ion-card-title class="ion-text-center" color="warning">Recuperar Cuenta</ion-card-title>
+      </ion-card-header>
+          
+      <ion-card-content class="color-form" >
+          <ion-list  >
+            <ion-item >
+              <div class="ion-padding-vertical" >
+                    <mat-form-field  appearance="standard">
+                      <mat-label >Nombre usuario</mat-label>
+                      <input matInput  type="text" [(ngModel)]="NombreUser" >
+                    </mat-form-field>
+              </div>
+            </ion-item>
+              
+              <div class="boton-position ion-padding-vertical">
+            <button  mat-raised-button color="primary"  type="submit"  >Recuperar</button>
+            
+            </div>
+
+          </ion-list>
+          
+      </ion-card-content>
+      
+    </ion-card>
+  </div>
 
 </ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-toolbar>
+    <ion-title class="centrado">
+      <button mat-icon-button color="primary" >
+      <mat-icon aria-hidden="false" aria-label="Home" (click)="salir()"  >arrow_back</mat-icon>
+    </button>
+  </ion-title>
+  </ion-toolbar>
+</ion-footer>

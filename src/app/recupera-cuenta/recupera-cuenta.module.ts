@@ -8,12 +8,24 @@ import { RecuperaCuentaPageRoutingModule } from './recupera-cuenta-routing.modul
 
 import { RecuperaCuentaPage } from './recupera-cuenta.page';
 
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    RecuperaCuentaPageRoutingModule
+    RecuperaCuentaPageRoutingModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatIconModule
+    
+
   ],
   declarations: [RecuperaCuentaPage]
 })

@@ -17,8 +17,12 @@ export class PaginaPrincipalPage implements OnInit {
       }
     })
   }
-
+  
   ngOnInit() {
   }
+  salir(){
+    this.router.navigate(['/home']);
+  }
+  
 
 }

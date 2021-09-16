@@ -5,15 +5,24 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { PaginaPrincipalPageRoutingModule } from './pagina-principal-routing.module';
-
 import { PaginaPrincipalPage } from './pagina-principal.page';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+
+
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    PaginaPrincipalPageRoutingModule
+    PaginaPrincipalPageRoutingModule,
+    MatRadioModule,
+    MatInputModule,
+    MatButtonModule,
+    MatIconModule
   ],
   declarations: [PaginaPrincipalPage]
 })
