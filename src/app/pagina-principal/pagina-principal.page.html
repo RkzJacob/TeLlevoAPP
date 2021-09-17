@@ -9,46 +9,66 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <div color="light">
+<ion-content [fullscreen]="true" color="dark">
+  <div >
     <ion-row>
       <ion-col size="12" class="border-0">
-        <ion-item lass="ion-text-wrap">
+        <ion-item lass="ion-text-wrap" color="dark">
           <ion-label>Bienvenido {{NombreUser}}</ion-label>
         </ion-item>
       </ion-col>
     </ion-row>
     <ion-row  class="border-0">
       <ion-col size="12" class="border-0 borde-radius">
-        <ion-item lass="ion-text-wrap">
+        <ion-item lass="ion-text-wrap" color="dark">
           <ion-label><img class="borde-radius" src="https://previews.123rf.com/images/maxkabakov/maxkabakov1606/maxkabakov160602482/58238631-el-concepto-de-viaje-pintado-de-azul-icono-de-autob%C3%BAs-en-el-fondo-de-papel-de-datos-digitales.jpg" alt=""></ion-label>
         </ion-item>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col size="12" class="centrado">
-          <button  mat-raised-button color="primary" type="submit" ><mat-icon>directions_bus</mat-icon></button>
+          <button  mat-raised-button color="primary" type="submit" ><mat-icon >directions_bus</mat-icon></button>
       </ion-col>
     </ion-row>
   </div>
+  <ion-row>
+    <ion-col>
+  <ion-slides pager="true" [options]="slideOpts">  
   
+    <ion-slide>  
+      <ion-text color="warning">Bienvinido a mi TeLLevoApp</ion-text>  
+    </ion-slide>  
+  
+    <ion-slide>  
+      <br>
+      <ion-text color="warning">
+        <P>Selecciona tu horario de entrada</P>
+      </ion-text> 
+      <br>
+      <br>
+      <br>
+    </ion-slide> 
+  
+  </ion-slides>
+  </ion-col>
+</ion-row>
 </ion-content>
 
 <ion-footer class="ion-no-border" >
   <ion-toolbar color="tertiary">
     <ion-row class="ion-no-border paddings">
     <ion-col size="4" >
-    <button mat-icon-button color="primary" >
+    <button mat-icon-button color="success" >
       <mat-icon aria-hidden="false" aria-label="salir" (click)="salir()">reply_all</mat-icon>
     </button>
   </ion-col>
   <ion-col size="4">
-    <button mat-icon-button color="primary" >
+    <button mat-icon-button color="success" >
       <mat-icon aria-hidden="false" aria-label="Home">maps_home_work</mat-icon>
     </button>
   </ion-col>
   <ion-col size="4">
-    <button mat-icon-button color="primary" >
+    <button mat-icon-button color="success" >
       <mat-icon aria-hidden="false" aria-label="configuracion">build</mat-icon>
     </button>
   </ion-col>

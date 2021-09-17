@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-pagina-principal',
   templateUrl: './pagina-principal.page.html',
@@ -18,8 +19,10 @@ export class PaginaPrincipalPage implements OnInit {
     })
   }
   
+  
   ngOnInit() {
   }
+  //me salgo al home
   salir(){
     this.router.navigate(['/home']);
   }

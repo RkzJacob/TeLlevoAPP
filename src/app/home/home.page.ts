@@ -20,10 +20,12 @@ export class HomePage implements OnInit{
   
   constructor(private router: Router,private loadingCtrl: LoadingController) {}
   ngOnInit(){}
+  //hice un constructor el cual va a la pagina de recuperar cuenta por medio de un clic
   recuperar(){
     this.router.navigate(['/recupera-cuenta']);
   }
-  animacion(){
+  loguear(){
+    //guardo los datos del nombre de usuario
     let navigationExtra: NavigationExtras={
       state:{NombreUser: this.NombreUser}
     }

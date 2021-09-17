@@ -1,20 +1,20 @@
 <ion-header>
-  <ion-toolbar class="ion-text-center">
+  <ion-toolbar class="ion-text-center" color="tertiary">
     <ion-title><ion-icon name="bus"></ion-icon></ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content color="light" [fullscreen]="true">
+<ion-content color="light" [fullscreen]="true" color="dark">
   <div class="ion-padding-vertical ">
-    <ion-card >
+    <ion-card color="medium" >
 
       <ion-card-header>
         <ion-card-title class="ion-text-center" color="warning">Recuperar Cuenta</ion-card-title>
       </ion-card-header>
           
-      <ion-card-content class="color-form" >
-          <ion-list  >
-            <ion-item >
+      <ion-card-content class="color-form" color="medium">
+          <ion-list color="medium" >
+            <ion-item  color="medium">
               <div class="ion-padding-vertical" >
                     <mat-form-field  appearance="standard">
                       <mat-label >Nombre usuario</mat-label>
@@ -23,8 +23,8 @@
               </div>
             </ion-item>
               
-              <div class="boton-position ion-padding-vertical">
-            <button  mat-raised-button color="primary"  type="submit"  >Recuperar</button>
+              <div class="boton-position ion-padding-vertical color-butn">
+            <button  mat-raised-button color="primary"  type="submit" (click)="recuperar()" >Recuperar</button>
             
             </div>
 
@@ -38,9 +38,9 @@
 </ion-content>
 
 <ion-footer class="ion-no-border">
-  <ion-toolbar>
+  <ion-toolbar color="tertiary">
     <ion-title class="centrado">
-      <button mat-icon-button color="primary" >
+      <button mat-icon-button color="success" >
       <mat-icon aria-hidden="false" aria-label="Home" (click)="salir()"  >arrow_back</mat-icon>
     </button>
   </ion-title>
