@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { BdLocalService } from 'src/app/services/bd-local.service';
+import { Router } from '@angular/router';
+import { ApiService } from 'src/app/services/api.service';
+
 
 @Component({
   selector: 'app-cmp2',
@@ -7,11 +9,29 @@ import { BdLocalService } from 'src/app/services/bd-local.service';
   styleUrls: ['./cmp2.component.scss'],
 })
 export class Cmp2Component implements OnInit {
-  nombre:string;
-  nro:string;
-  constructor(private bdLocal:BdLocalService) { }
-  guardar(){
-    this.bdLocal.guardarContactos(this.nombre,this.nro);
+  n1:any;
+  n2:any;
+  n3:any;
+  n4:any;
+  n5:any;
+  n6:any;
+  constructor(private api:ApiService,private router:Router) { }
+  ionViewWillEnter(){
+    this.getRegiones()
+    this.getProvincias()
+  }
+
+  getRegiones(){
+    this.api.getRegion().subscribe((data)=>{
+      this.n2=data;
+    });
+
+  }
+  getProvincias(){
+    this.api.getProvincias(this.n3).subscribe((data)=>{
+      this.n5=data;
+      
+    });
   }
   ngOnInit() {}
 

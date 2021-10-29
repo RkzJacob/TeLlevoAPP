@@ -1,4 +1,29 @@
 <ion-content color="dark"> 
+
+
+    <ion-content>
+        <ion-card>
+          <ion-card-header>
+            <ion-title>Datos</ion-title>
+          </ion-card-header>
+          <ion-item>
+            <ion-select placeholder="Seleccione región"  [(ngModel)]="n1">
+              <ion-select-option *ngFor="let usu of n2" [value]="n3" >{{usu.nombre}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-item>
+            <ion-select placeholder="Seleccione provincia"  [(ngModel)]="n4"></ion-select>
+            <ion-select-option *ngFor="let usu of n5" [value]="n6" >{{usu.nombre}}</ion-select-option>
+            
+          </ion-item>
+          <ion-item>
+            <button mat-icon-button color="success" >
+            <mat-icon aria-hidden="false" aria-label="salir" >arrow_right_alt</mat-icon>
+          </button>
+          </ion-item>
+        </ion-card>
+
+        
     <ion-card class="center" color="medium">
         <ion-card-header color="medium">
           <ion-card-title>Contacto</ion-card-title>

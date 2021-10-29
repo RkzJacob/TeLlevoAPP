@@ -13,6 +13,8 @@ import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ApiService } from 'src/app/services/api.service';
+import { Cmp2Component } from 'src/app/Components/cmp2/cmp2.component';
 
 @NgModule({
   imports: [
@@ -26,6 +28,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatIconModule,
     ReactiveFormsModule
   ],
-  declarations: [ConfigPage]
+  declarations: [ConfigPage,ApiService,Cmp2Component]
 })
 export class ConfigPageModule {}
