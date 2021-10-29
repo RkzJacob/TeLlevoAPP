@@ -7,6 +7,8 @@ import { HomePageRoutingModule } from './home-routing.module';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 
 
@@ -18,7 +20,9 @@ import {MatButtonModule} from '@angular/material/button';
     HomePageRoutingModule,
     MatFormFieldModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    ReactiveFormsModule 
+    
   ],
   declarations: [HomePage]
 })

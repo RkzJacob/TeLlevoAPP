@@ -1,0 +1,21 @@
+<ion-header class="HEADER-LOGIN" [translucent]="true" >
+  <ion-toolbar color="tertiary">
+    <ion-segment (ionChange)="segmentChanged($event)">
+      <ion-segment-button value="global">
+        <ion-label>Guardar contacto</ion-label>
+        </ion-segment-button>
+      <ion-segment-button value="app">
+        <ion-label>Contactos</ion-label>
+        </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content  color="dark">
+  <ion-router-outlet></ion-router-outlet>
+</ion-content>
+
+
+<ion-footer class="ion-no-border">
+  <ion-toolbar color="tertiary"></ion-toolbar>
+</ion-footer>

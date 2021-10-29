@@ -1,4 +1,4 @@
-<ion-header class="HEADER-LOGIN" [translucent]="true" >
+<ion-header class="HEADER-LOGIN"  >
   <ion-toolbar color="tertiary">
     <ion-title class="ion-text-center" >
       <ion-icon name="bus"></ion-icon>
@@ -6,7 +6,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content CLASS="CONTENIDO-DEL-LOGIN" color="dark" [fullscreen]="true" >
+<ion-content CLASS="CONTENIDO-DEL-LOGIN no-scroll" color="dark" [fullscreen]="true" >
   <div class="ion-padding-vertical ">
     <ion-card color="medium">
       <ion-card-header>
@@ -16,16 +16,18 @@
       <ion-card-content color="medium" >
           <ion-list  color="medium">
             <ion-item  color="medium">
-              <div class="ion-padding-vertical" >
+              <div  class="ion-padding-vertical" >
                     <mat-form-field  appearance="standard">
                       <mat-label >Nombre usuario</mat-label>
-                      <input matInput  type="text" [(ngModel)]="NombreUser" >
+                      <input matInput  type="text" [(ngModel)]="NombreUser" [formControl]="userCtrl" required>
+                      <mat-error *ngIf="userCtrl.invalid">{{obtenerErrorForm()}}</mat-error>
                       
                     </mat-form-field>
                     <mat-form-field  appearance="standard">
                       <mat-label >Contraseña</mat-label>
-                      <input matInput  type="password" [(ngModel)]="Contrasena">
-                    </mat-form-field>
+                      <input matInput  type="password" [(ngModel)]="Contrasena" [formControl]="contraCtrl" required>
+                      <mat-error *ngIf="contraCtrl.invalid">{{obtenerErrorForm2()}}</mat-error>
+                    </mat-form-field>  
               </div>
             </ion-item>
               
@@ -44,15 +46,11 @@
   <div class="ion-text-center">
       <ion-text (click)="recuperar()" color="primary">¿Olvidaste tu contraseña?</ion-text>
   </div>
-  
-    
 </ion-content>
-<ion-footer class="ion-no-border" >
-  <ion-toolbar color="tertiary">
-    <ion-title></ion-title>
-  </ion-toolbar>
-</ion-footer>
 
+
+<ion-footer class="ion-no-border bar-balanced" >
+</ion-footer>
 
 
 

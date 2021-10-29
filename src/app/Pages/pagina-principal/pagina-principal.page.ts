@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router ,NavigationExtras} from '@angular/router';
 
 
 @Component({
@@ -25,6 +25,13 @@ export class PaginaPrincipalPage implements OnInit {
   //me salgo al home
   salir(){
     this.router.navigate(['/home']);
+  }
+  //paso el dato ya guardado
+  config(){
+    let navigationExtra: NavigationExtras={
+      state:{NombreUserxd: this.NombreUser}
+    }
+    this.router.navigate(['/config'],navigationExtra);
   }
   
 

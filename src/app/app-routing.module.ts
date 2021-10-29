@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
   },
   {
     path: '',
@@ -13,11 +13,19 @@ const routes: Routes = [
   },
   {
     path: 'recupera-cuenta',
-    loadChildren: () => import('./recupera-cuenta/recupera-cuenta.module').then( m => m.RecuperaCuentaPageModule)
+    loadChildren: () => import('./pages/recupera-cuenta/recupera-cuenta.module').then( m => m.RecuperaCuentaPageModule)
   },
   {
     path: 'pagina-principal',
-    loadChildren: () => import('./pagina-principal/pagina-principal.module').then( m => m.PaginaPrincipalPageModule)
+    loadChildren: () => import('./pages/pagina-principal/pagina-principal.module').then( m => m.PaginaPrincipalPageModule)
+  },
+  {
+    path: 'not-found',
+    loadChildren: () => import('./pages/not-found/not-found.module').then( m => m.NotFoundPageModule)
+  },
+  {
+    path: 'config',
+    loadChildren: () => import('./pages/config/config.module').then( m => m.ConfigPageModule)
   },
 ];
 
