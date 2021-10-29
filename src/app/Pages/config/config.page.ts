@@ -23,5 +23,7 @@ export class ConfigPage implements OnInit {
   }
   ngOnInit() {
   }
-
+  salir(){
+    this.router.navigate(['/pagina-principal']);
+  }
 }

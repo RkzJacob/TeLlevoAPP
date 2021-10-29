@@ -7,13 +7,23 @@ import { IonicModule } from '@ionic/angular';
 import { ApiPageRoutingModule } from './api-routing.module';
 
 import { ApiPage } from './api.page';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ApiPageRoutingModule
+    ApiPageRoutingModule,
+    MatRadioModule,
+    MatInputModule,
+    MatButtonModule,
+    MatIconModule,
+    ReactiveFormsModule
   ],
   declarations: [ApiPage]
 })

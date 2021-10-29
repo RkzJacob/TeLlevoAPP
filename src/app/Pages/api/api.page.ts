@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
 
 
@@ -15,7 +16,7 @@ export class ApiPage implements OnInit {
   n4:any;
   n5:any;
   n6:any;
-  constructor(private api:ApiService) { }
+  constructor(private api:ApiService,private router:Router) { }
   ionViewWillEnter(){
     this.getRegiones()
     this.getProvincias()
@@ -32,6 +33,9 @@ export class ApiPage implements OnInit {
       this.n5=data;
       
     });
+  }
+  salir(){
+    this.router.navigate(['/pagina-principal']);
   }
   ngOnInit() {
   }
