@@ -35,7 +35,7 @@ export class BdLocalService {
     if (!existe) {
       this.agenda.unshift({strNombre:nombre,strNumero:nro})
       this._storage.set('agenda',this.agenda)
-      this.presentToast("Contacto guardado con exito")
+      this.presentToast("Usuario guardado")
     } else {
       this.presentToast("error")
     }
