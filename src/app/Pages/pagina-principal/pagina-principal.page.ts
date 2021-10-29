@@ -33,6 +33,8 @@ export class PaginaPrincipalPage implements OnInit {
     }
     this.router.navigate(['/config'],navigationExtra);
   }
-  
+  api(){
+    this.router.navigate(['/api']);
+  }
 
 }
