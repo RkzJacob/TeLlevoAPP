@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
+import { Cmp2Component } from 'src/app/Components/cmp2/cmp2.component';
+import { ModalController } from '@ionic/angular';
+import { GooglemapsComponent } from 'src/app/Components/googlemaps/googlemaps.component';
+
 
 
 
@@ -16,11 +20,15 @@ export class ApiPage implements OnInit {
   n4:any;
   n5:any;
   n6:any;
-  constructor(private api:ApiService,private router:Router) { }
+  ubicacion:null;
+  
+  constructor(private api:ApiService,private router:Router,private modalController:ModalController) { }
   ionViewWillEnter(){
     this.getRegiones()
     this.getProvincias()
+   
   }
+
 
   getRegiones(){
     this.api.getRegion().subscribe((data)=>{
@@ -38,6 +46,27 @@ export class ApiPage implements OnInit {
     this.router.navigate(['/pagina-principal']);
   }
   ngOnInit() {
+  }
+
+  async agregarDireccion() {
+
+    const ubicacion = this.ubicacion;
+    let positionInput = {  
+      lat:-33.033536273897305,
+      lng:-71.53323774650227
+    };
+    if (ubicacion !== null) {
+        positionInput = ubicacion; 
+    }
+
+    const modalAdd  = await this.modalController.create({
+      component: GooglemapsComponent,
+      mode: 'ios',
+      swipeToClose: true,
+      componentProps: {position: positionInput}
+    });
+    await modalAdd.present();
+
   }
 
 

@@ -24,6 +24,17 @@
       <mat-icon aria-hidden="false" aria-label="salir" >arrow_right_alt</mat-icon>
     </button>
     </ion-item>
+    <ion-item (click)="agregarDireccion()">
+      <ion-label>
+        ubicacion
+      </ion-label>
+      <ion-buttons slot="end">
+        <ion-button>
+            <ion-icon slot="icon-only" color="danger" name="location"></ion-icon>
+        </ion-button>
+
+      </ion-buttons>
+    </ion-item>
   </ion-card>
 
 </ion-content>

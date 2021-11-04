@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BdLocalService } from 'src/app/services/bd-local.service';
+import {Geolocation} from '@ionic-native/geolocation/ngx';
 
 @Component({
   selector: 'app-cmp1',
@@ -12,7 +13,7 @@ export class Cmp1Component  {
   nro:string;
 
 
-  constructor(private bdLocal:BdLocalService) { }
+  constructor(private bdLocal:BdLocalService,private geolocation:Geolocation) { }
   guardar(){
     this.bdLocal.guardarContactos(this.nombre,this.nro);
   }
