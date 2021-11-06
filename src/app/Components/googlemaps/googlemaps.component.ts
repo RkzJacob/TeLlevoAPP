@@ -118,7 +118,7 @@ setInfoWindow(marker: any, titulo: string, subtitulo: string) {
 }
 async mylocation() {
 
-      console.log('mylocation() click')A
+      console.log('mylocation() click')
 
       Geolocation.getCurrentPosition().then((res) => {
 
