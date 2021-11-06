@@ -1,11 +1,10 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, ElementRef, Inject, Input, OnInit, Renderer2, ViewChild } from '@angular/core';
-import { inject } from '@angular/core/testing';
 import { ModalController } from '@ionic/angular';
 import { GooglemapsService } from './googlemaps.service';
-import { Plugins } from '@capacitor/core';
+import { Geolocation } from '@capacitor/geolocation';
 
-const {Geolocation} = Plugins;
+
 
 declare var google: any;
 
@@ -24,7 +23,7 @@ export class GooglemapsComponent implements OnInit {
       titulo:'Ubicacion',
       subtitulo:'Mi ubicación'
   }
-  mapa:any;
+  map:any;
   marker:any;
   infowindow:any;
   positionSet:any;
@@ -43,9 +42,9 @@ export class GooglemapsComponent implements OnInit {
   }
 
   async  init() {
-    this.googlemapsService.init(this.renderer,this.document).then(()=>{
+    this.googlemapsService.init(this.renderer,this.document).then( () => {
         this.initMap();
-    }).catch((err)=>{
+    }).catch( (err) => {
         console.log(err);
     });
   }
@@ -63,9 +62,9 @@ export class GooglemapsComponent implements OnInit {
           clickableIcons: false,
     };
 
-    this.mapa = new google.maps.Map(this.divMap.nativeElement, mapOptions);
+    this.map = new google.maps.Map(this.divMap.nativeElement, mapOptions);
     this.marker = new google.maps.Marker({
-          map: this.mapa,
+          map: this.map,
           animation: google.maps.Animation.DROP,
           draggable: false,
     });
@@ -79,7 +78,7 @@ export class GooglemapsComponent implements OnInit {
 
 clickHandleEvent() {
 
-    this.mapa.addListener('click', (event: any) => {
+    this.map.addListener('click', (event: any) => {
           const position = {
                 lat: event.latLng.lat(),
                 lng: event.latLng.lng(),
@@ -96,7 +95,7 @@ addMarker(position: any): void {
     let latLng = new google.maps.LatLng(position.lat, position.lng);
 
     this.marker.setPosition(latLng);
-    this.mapa.panTo(position);
+    this.map.panTo(position);
     this.positionSet = position;
 
 }
@@ -114,7 +113,7 @@ setInfoWindow(marker: any, titulo: string, subtitulo: string) {
                             '</div>' +
                             '</div>';
     this.infowindow.setContent(contentString);
-    this.infowindow.open(this.mapa, marker);
+    this.infowindow.open(this.map, marker);
 
 }
 async mylocation() {

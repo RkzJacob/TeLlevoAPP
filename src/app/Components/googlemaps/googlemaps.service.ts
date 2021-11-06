@@ -5,13 +5,13 @@ declare var google:any;
 })
 export class GooglemapsService {
 
-  apiKey='AIzaSyBQphcqDrKtqz40kEw6NIYaASohpQ_-71w';
+  apiKey='AIzaSyDNqZy4w_uAD4IyonGOSv4YLeDeQngGmXU';
   cargarMapa=false;
 
 
   constructor() { }
 
-  init(renderer:any,doucment:any): Promise<any>{
+  init(renderer:any,document:any): Promise<any>{
     return new Promise((resolve)=>{
       if(this.cargarMapa){
         console.log('ya ha sido cargado el mapa')
