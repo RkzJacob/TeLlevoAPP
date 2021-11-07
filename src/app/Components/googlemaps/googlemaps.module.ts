@@ -11,7 +11,7 @@ import { GooglemapsComponent } from './googlemaps.component';
   imports: [
     CommonModule
   ],exports:[
-    GooglemapsComponent 
+    GooglemapsComponent,
   ]
 })
 export class GooglemapsModule { }

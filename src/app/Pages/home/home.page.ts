@@ -15,16 +15,19 @@ import { BdLocalService } from 'src/app/services/bd-local.service';
 
 
 export class HomePage implements OnInit{
+
   //variables a obtener del html
   NombreUser:string;
   Contrasena:string;
 
+  //validaciones que hago en el validators a los formcontrol
   userCtrl= new FormControl('',[Validators.required,Validators.minLength(2),Validators.maxLength(15)]);
   contraCtrl=new FormControl('',[Validators.required,Validators.minLength(6),Validators.maxLength(30)]);
+  //crear componentes de los imports que usare
   constructor(private router: Router,private loadingCtrl: LoadingController,private bdLocal: BdLocalService) {
   }
 
-  ///ERRORES
+  ///obtener errores del usuario en el form
   obtenerErrorForm(){
     if (this.userCtrl.hasError('required')) {
       return 'Ingrese un usuario';
@@ -36,6 +39,7 @@ export class HomePage implements OnInit{
       return 'Limite superado';
     }
   }
+  //obtener errores de contraseña en el form
   obtenerErrorForm2(){
     if (this.contraCtrl.hasError('required')) {
       return 'Ingrese una contraseña';
@@ -49,17 +53,17 @@ export class HomePage implements OnInit{
   }
   ////////////////////////////////////////////////////
 
-
+  //inicializar metodos async
   ngOnInit(){}
   
 
-  ///recuperar cuenta
+  ///enviarme a la pagina recuperar cuenta
   recuperar(){
     this.router.navigate(['/recupera-cuenta']);
   }
   ////////////
 
-  /////LOGIN
+  /////verificar validaciones hechas arriba si estan bien se guardan en el localstorage
   loguear(){
     if (!this.userCtrl.hasError('required') && !this.userCtrl.hasError('minlength') && !this.userCtrl.hasError('maxlength') &&
     !this.contraCtrl.hasError('required') && !this.contraCtrl.hasError('minlength') && !this.contraCtrl.hasError('maxlength')) 

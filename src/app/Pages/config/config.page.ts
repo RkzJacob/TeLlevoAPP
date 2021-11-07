@@ -7,7 +7,9 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./config.page.scss'],
 })
 export class ConfigPage implements OnInit {
+
   NombreUserxd: any ;
+//creo componentes de los import que usare
   constructor(private activeRoute: ActivatedRoute,private router: Router) { 
     //llamo a la ruta activa y obtengo los parametros
     this.activeRoute.queryParams.subscribe(params=>{
@@ -17,13 +19,20 @@ export class ConfigPage implements OnInit {
       }
     })
   }
+
+  //cambio de evento en el config.html en el segment
   segmentChanged($event){
     let direccion=$event.detail.value
     this.router.navigate(['config/'+direccion])
   }
+
+  //inicializar metodos async
   ngOnInit() {
+
   }
+  //metodo para ir a la pagina principal
   salir(){
     this.router.navigate(['/pagina-principal']);
   }
+  
 }

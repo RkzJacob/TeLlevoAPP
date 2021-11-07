@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
+
+
 declare var google:any;
+
 @Injectable({
   providedIn: 'root'
 })
@@ -12,6 +15,7 @@ export class GooglemapsService {
   constructor() { }
 
   init(renderer:any,document:any): Promise<any>{
+    
     return new Promise((resolve)=>{
       if(this.cargarMapa){
         console.log('ya ha sido cargado el mapa')
@@ -40,5 +44,7 @@ export class GooglemapsService {
     renderer.appendChild(document.body, script);
 
     });
+      
   }
+  
 }

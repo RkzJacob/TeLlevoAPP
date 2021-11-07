@@ -8,21 +8,28 @@ import { Geolocation } from '@capacitor/geolocation';
 
 declare var google: any;
 
+
 @Component({
   selector: 'app-googlemaps',
   templateUrl: './googlemaps.component.html',
   styleUrls: ['./googlemaps.component.scss'],
 })
 export class GooglemapsComponent implements OnInit {
+      
 
-  @Input() position={
-        lat:-33.033536273897305,
-        lng:-71.53323774650227
-  };
+   @Input() position = {  
+            lat: -2.898116,
+            lng: -78.99958149999999
+  }; 
+  //lat: -2.898116
+  //lng: -78.99958149999999
+      
+
   label={
       titulo:'Ubicacion',
       subtitulo:'Mi ubicación'
   }
+
   map:any;
   marker:any;
   infowindow:any;
@@ -35,10 +42,10 @@ export class GooglemapsComponent implements OnInit {
     private googlemapsService:GooglemapsService,
     public modalController:ModalController) { }
 
-  ngOnInit():void {
+  ngOnInit() {
     this.init();
-    
 
+    console.log('position ->', this.position)
   }
 
   async  init() {
@@ -51,9 +58,9 @@ export class GooglemapsComponent implements OnInit {
 
   initMap() {
 
-    const position = this.position;
+    const position1= this.position;
 
-    let latLng = new google.maps.LatLng(position.lat, position.lng);
+    let latLng = new google.maps.coords(position1.lat, position1.lng);
 
     let mapOptions = {
           center: latLng,
@@ -61,17 +68,15 @@ export class GooglemapsComponent implements OnInit {
           disableDefaultUI: true,
           clickableIcons: false,
     };
-
-    this.map = new google.maps.Map(this.divMap.nativeElement, mapOptions);
-    this.marker = new google.maps.Marker({
-          map: this.map,
-          animation: google.maps.Animation.DROP,
-          draggable: false,
+    let map: google.maps.Map;
+    map = new google.maps.Map(this.divMap.nativeElement, {
+      center: { lat: -34.397, lng: 150.644 },
+      zoom: 8,
     });
 
     this.clickHandleEvent();
     this.infowindow = new google.maps.InfoWindow();
-    this.addMarker(position);
+    this.addMarker(position1);
     this.setInfoWindow(this.marker, this.label.titulo, this.label.subtitulo);
 
 }
@@ -90,7 +95,7 @@ clickHandleEvent() {
 
 
 
-addMarker(position: any): void {
+addMarker(position: any) {
 
     let latLng = new google.maps.LatLng(position.lat, position.lng);
 

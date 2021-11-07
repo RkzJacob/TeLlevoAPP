@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
-import { Cmp2Component } from 'src/app/Components/cmp2/cmp2.component';
 import { ModalController } from '@ionic/angular';
 import { GooglemapsComponent } from 'src/app/Components/googlemaps/googlemaps.component';
 
@@ -23,6 +22,7 @@ export class ApiPage implements OnInit {
   ubicacion:null;
   
   constructor(private api:ApiService,private router:Router,private modalController:ModalController) { }
+
   ionViewWillEnter(){
     this.getRegiones()
     this.getProvincias()
@@ -52,8 +52,8 @@ export class ApiPage implements OnInit {
 
     const ubicacion = this.ubicacion;
     let positionInput = {  
-      lat:-33.033536273897305,
-      lng:-71.53323774650227
+      lat:0,
+      lng:0,
     };
     if (ubicacion !== null) {
         positionInput = ubicacion; 
