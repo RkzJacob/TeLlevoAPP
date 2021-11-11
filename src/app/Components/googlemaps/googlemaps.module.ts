@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { GooglemapsComponent } from './googlemaps.component';
+import { IonicModule } from '@ionic/angular';
 
 
 
@@ -9,7 +10,8 @@ import { GooglemapsComponent } from './googlemaps.component';
     GooglemapsComponent 
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    IonicModule
   ],exports:[
     GooglemapsComponent,
   ]

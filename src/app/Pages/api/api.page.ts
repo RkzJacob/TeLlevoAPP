@@ -19,29 +19,17 @@ export class ApiPage implements OnInit {
   n4:any;
   n5:any;
   n6:any;
-  ubicacion:null;
+  ubicacion=null;
   
   constructor(private api:ApiService,private router:Router,private modalController:ModalController) { }
 
   ionViewWillEnter(){
-    this.getRegiones()
-    this.getProvincias()
    
   }
 
 
-  getRegiones(){
-    this.api.getRegion().subscribe((data)=>{
-      this.n2=data;
-    });
-
-  }
-  getProvincias(){
-    this.api.getProvincias(this.n3).subscribe((data)=>{
-      this.n5=data;
-      
-    });
-  }
+  
+  
   salir(){
     this.router.navigate(['/pagina-principal']);
   }
@@ -52,8 +40,8 @@ export class ApiPage implements OnInit {
 
     const ubicacion = this.ubicacion;
     let positionInput = {  
-      lat:0,
-      lng:0,
+      lat: -2.898116,
+      lng: -78.99958149999999,
     };
     if (ubicacion !== null) {
         positionInput = ubicacion; 

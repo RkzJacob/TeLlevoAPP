@@ -5,11 +5,6 @@ import { GooglemapsService } from './googlemaps.service';
 import { Geolocation } from '@capacitor/geolocation';
 
 
-
-
-
-
-
 declare var google: any;
 
 
@@ -44,9 +39,8 @@ export class GooglemapsComponent implements OnInit {
     private googlemapsService:GooglemapsService,
     public modalController:ModalController) { }
 
-  ngOnInit() {
+  ngOnInit():void {
     this.init();
-    this.initMap();
 
     console.log('position ->', this.position)
 
@@ -65,7 +59,7 @@ export class GooglemapsComponent implements OnInit {
 
     const position1= this.position;
 
-    let latLng = new google.maps.coords(position1.lat, position1.lng);
+    let latLng = new google.maps.LatLng(position1.lat, position1.lng);
 
     let mapOptions = {
           center: latLng,
@@ -73,11 +67,14 @@ export class GooglemapsComponent implements OnInit {
           disableDefaultUI: true,
           clickableIcons: false,
     };
-    let map: google.maps.Map;
-    map = new google.maps.Map(this.divMap.nativeElement, {
-      center: { lat: -34.397, lng: 150.644 },
-      zoom: 8,
-    });
+
+    
+      this.map = new google.maps.Map(this.divMap.nativeElement, mapOptions);
+      this.marker = new google.maps.Marker({
+                  map: this.map,
+                  animation: google.maps.Animation.DROP,
+                  draggable: false,
+      });
 
     this.clickHandleEvent();
     this.infowindow = new google.maps.InfoWindow();
@@ -100,7 +97,7 @@ clickHandleEvent() {
 
 
 
-addMarker(position: any) {
+addMarker(position: any):void {
 
     let latLng = new google.maps.LatLng(position.lat, position.lng);
 

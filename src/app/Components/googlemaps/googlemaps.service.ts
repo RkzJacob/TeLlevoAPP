@@ -8,7 +8,7 @@ declare var google:any;
 })
 export class GooglemapsService {
 
-  apiKey='AIzaSyDNqZy4w_uAD4IyonGOSv4YLeDeQngGmXU';
+  apiKey='AIzaSyBQphcqDrKtqz40kEw6NIYaASohpQ_-71w';
   cargarMapa=false; 
 
 
