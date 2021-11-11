@@ -5,8 +5,7 @@ import { AuthGuard } from './guards/auth.guard';
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule),
-    canActivate:[AuthGuard]
+    loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
   },
   {
     path: '',
@@ -15,11 +14,13 @@ const routes: Routes = [
   },
   {
     path: 'recupera-cuenta',
-    loadChildren: () => import('./pages/recupera-cuenta/recupera-cuenta.module').then( m => m.RecuperaCuentaPageModule)
+    loadChildren: () => import('./pages/recupera-cuenta/recupera-cuenta.module').then( m => m.RecuperaCuentaPageModule),
   },
   {
     path: 'pagina-principal',
-    loadChildren: () => import('./pages/pagina-principal/pagina-principal.module').then( m => m.PaginaPrincipalPageModule)
+    loadChildren: () => import('./pages/pagina-principal/pagina-principal.module').then( m => m.PaginaPrincipalPageModule),
+    canActivate:[AuthGuard]
+    
   },
   {
     path: 'not-found',

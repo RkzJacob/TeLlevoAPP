@@ -6,6 +6,10 @@ import { Geolocation } from '@capacitor/geolocation';
 
 
 
+
+
+
+
 declare var google: any;
 
 
@@ -21,10 +25,7 @@ export class GooglemapsComponent implements OnInit {
             lat: -2.898116,
             lng: -78.99958149999999
   }; 
-  //lat: -2.898116
-  //lng: -78.99958149999999
-      
-
+  
   label={
       titulo:'Ubicacion',
       subtitulo:'Mi ubicación'
@@ -34,6 +35,7 @@ export class GooglemapsComponent implements OnInit {
   marker:any;
   infowindow:any;
   positionSet:any;
+  
 
   @ViewChild('map') divMap: ElementRef;
 
@@ -44,8 +46,11 @@ export class GooglemapsComponent implements OnInit {
 
   ngOnInit() {
     this.init();
+    this.initMap();
 
     console.log('position ->', this.position)
+
+
   }
 
   async  init() {
@@ -143,6 +148,8 @@ async mylocation() {
             console.log('click aceptar -> ', this.positionSet);
             this.modalController.dismiss({pos: this.positionSet})
       }
+
+
 
 
 }

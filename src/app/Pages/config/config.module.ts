@@ -15,6 +15,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ApiService } from 'src/app/services/api.service';
 import { Cmp2Component } from 'src/app/Components/cmp2/cmp2.component';
+import { Cmp1Component } from 'src/app/Components/cmp1/cmp1.component';
 
 @NgModule({
   imports: [
@@ -28,6 +29,6 @@ import { Cmp2Component } from 'src/app/Components/cmp2/cmp2.component';
     MatIconModule,
     ReactiveFormsModule
   ],
-  declarations: [ConfigPage,ApiService,Cmp2Component]
+  declarations: [ConfigPage,ApiService,Cmp2Component,Cmp1Component]
 })
 export class ConfigPageModule {}

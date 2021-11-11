@@ -11,6 +11,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import {AgmCoreModule} from '@agm/core';
+import { AuthService } from './guards/auth.service';
+import { AuthGuard } from './guards/auth.guard';
+import { GooglemapsService } from './Components/googlemaps/googlemaps.service';
+import { AngularFireModule } from '@angular/fire/compat';
+import { environment } from 'src/environments/environment';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+
+
 
 
 
@@ -27,10 +35,15 @@ import {AgmCoreModule} from '@agm/core';
    AppRoutingModule,
    BrowserAnimationsModule,
    IonicStorageModule.forRoot(),
-   HttpClientModule,AgmCoreModule.forRoot({apiKey:'AIzaSyDNqZy4w_uAD4IyonGOSv4YLeDeQngGmXU'}) 
+   HttpClientModule,AgmCoreModule.forRoot({apiKey:'AIzaSyDNqZy4w_uAD4IyonGOSv4YLeDeQngGmXU'}),
+   AngularFireModule.initializeApp(environment.firebase),
+   AngularFirestoreModule
   ],
   providers: [
+    AuthService, 
+    AuthGuard,
     Geolocation,
+    GooglemapsService,
     { provide: 
       RouteReuseStrategy,
       useClass: IonicRouteStrategy

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ApiService } from 'src/app/services/api.service';
+import { Contactos } from 'src/app/interfaces/contactos';
+import { ContactoService } from 'src/app/services/contacto.service';
+
 
 
 @Component({
@@ -9,30 +11,30 @@ import { ApiService } from 'src/app/services/api.service';
   styleUrls: ['./cmp2.component.scss'],
 })
 export class Cmp2Component implements OnInit {
-  n1:any;
-  n2:any;
-  n3:any;
-  n4:any;
-  n5:any;
-  n6:any;
-  constructor(private api:ApiService,private router:Router) { }
+
+  contactos: Contactos[]=[];
+
+  newContacto: Contactos={
+    strNombre:'',
+    strNro:null,
+    id:this.database.getId(),
+    fecha:new Date()
+  }
+  private path='Contacto/';
+  constructor(private router:Router,public database:ContactoService) { }
   ionViewWillEnter(){
-    this.getRegiones()
-    this.getProvincias()
+    
   }
 
-  getRegiones(){
-    this.api.getRegion().subscribe((data)=>{
-      this.n2=data;
+  ngOnInit() {
+    this.getContactos();
+  }
+
+  getContactos(){
+    this.database.getCollection<Contactos>(this.path).subscribe(   res => {
+        this.contactos =res;
     });
 
   }
-  getProvincias(){
-    this.api.getProvincias(this.n3).subscribe((data)=>{
-      this.n5=data;
-      
-    });
-  }
-  ngOnInit() {}
 
 }

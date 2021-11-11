@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { BdLocalService } from 'src/app/services/bd-local.service';
+import { Contactos } from 'src/app/interfaces/contactos';
+import { ContactoService } from 'src/app/services/contacto.service';
 
 
 @Component({
@@ -7,16 +8,32 @@ import { BdLocalService } from 'src/app/services/bd-local.service';
   templateUrl: './cmp1.component.html',
   styleUrls: ['./cmp1.component.scss'],
 })
-export class Cmp1Component  {
+export class Cmp1Component  implements OnInit{
+  
+  newContacto: Contactos={
+      strNombre:'',
+      strNro:null,
+      id:this.database.getId(),
+      fecha:new Date()
+  };
+  
+  
 
-  nombre:string;
-  nro:string;
+  private path='Contacto/';
 
+  constructor(public database:ContactoService) { }
 
-  constructor(private bdLocal:BdLocalService) { }
-  guardar(){
-    this.bdLocal.guardarContactos(this.nombre,this.nro);
+  ngOnInit(){
+
   }
 
+  guardarContacto(){
+    console.log('nombre = ',this.newContacto.strNombre)
+    
+    this.database.crearDoc(this.newContacto,this.path,this.newContacto.id);
+  }
+  
+  
+  
 
 }

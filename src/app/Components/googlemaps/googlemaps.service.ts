@@ -9,12 +9,12 @@ declare var google:any;
 export class GooglemapsService {
 
   apiKey='AIzaSyDNqZy4w_uAD4IyonGOSv4YLeDeQngGmXU';
-  cargarMapa=false;
+  cargarMapa=false; 
 
 
   constructor() { }
 
-  init(renderer:any,document:any): Promise<any>{
+  init(renderer:any,document:any): Promise<any>{ 
     
     return new Promise((resolve)=>{
       if(this.cargarMapa){
@@ -45,6 +45,6 @@ export class GooglemapsService {
 
     });
       
-  }
+  } 
   
 }

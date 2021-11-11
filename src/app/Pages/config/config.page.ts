@@ -7,7 +7,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./config.page.scss'],
 })
 export class ConfigPage implements OnInit {
-
+  
   NombreUserxd: any ;
 //creo componentes de los import que usare
   constructor(private activeRoute: ActivatedRoute,private router: Router) { 

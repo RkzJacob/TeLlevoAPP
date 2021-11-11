@@ -6,6 +6,7 @@ import { BdLocalService } from 'src/app/services/bd-local.service';
 
 
 
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -19,12 +20,14 @@ export class HomePage implements OnInit{
   //variables a obtener del html
   NombreUser:string;
   Contrasena:string;
+  
 
   //validaciones que hago en el validators a los formcontrol
   userCtrl= new FormControl('',[Validators.required,Validators.minLength(2),Validators.maxLength(15)]);
   contraCtrl=new FormControl('',[Validators.required,Validators.minLength(6),Validators.maxLength(30)]);
   //crear componentes de los imports que usare
-  constructor(private router: Router,private loadingCtrl: LoadingController,private bdLocal: BdLocalService) {
+  constructor(private router: Router,private loadingCtrl: LoadingController,private bdLocal: BdLocalService
+    ) {
   }
 
   ///obtener errores del usuario en el form
@@ -68,7 +71,7 @@ export class HomePage implements OnInit{
     if (!this.userCtrl.hasError('required') && !this.userCtrl.hasError('minlength') && !this.userCtrl.hasError('maxlength') &&
     !this.contraCtrl.hasError('required') && !this.contraCtrl.hasError('minlength') && !this.contraCtrl.hasError('maxlength')) 
     {
-      this.bdLocal.guardarContactos(this.NombreUser,this.Contrasena);
+      
       //guardo los datos del nombre de usuario
       let navigationExtra: NavigationExtras={
         state:{NombreUser: this.NombreUser}
@@ -90,8 +93,9 @@ export class HomePage implements OnInit{
     }
   }
   //////////////////
-  }
+  
+  
 
-
+}
 
 

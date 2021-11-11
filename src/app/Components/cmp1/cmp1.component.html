@@ -1,26 +1,24 @@
 
 <ion-content color="dark"> 
     <ion-card class="center" color="medium">
-        <ion-card-header color="medium">
-          <ion-card-title>Contacto</ion-card-title>
+        <ion-card-header color="medium" class="ion-text-center">
+          <ion-card-title >Contacto</ion-card-title>
         </ion-card-header>
         <ion-card-content>
             <ion-list color="medium">
                 <ion-item color="medium">
                     <div class="ion-padding-vertical">
-                        <ion-label>Nombre de contacto</ion-label>
-                        <ion-input type="text" placeholder="Ingrese nombre" [(ngModel)]="nombre"></ion-input>
+                        <ion-input [(ngModel)]="newContacto.strNombre" type="text" placeholder="Ingrese nombre"  inputmode="text"></ion-input>
                     </div>
                 </ion-item>
                 <ion-item color="medium"> 
                     <div class="ion-padding-vertical">
-                        <ion-label>Numero de contacto</ion-label>
-                        <ion-input type="text" placeholder="Ingrese Numero" [(ngModel)]="nro"></ion-input>
+                        <ion-input [(ngModel)]="newContacto.strNro" type="number" placeholder="Ingrese Numero"  inputmode="numeric"></ion-input>
                     </div>
                 </ion-item>
                 <ion-item color="medium">
                     <div class="boton-position ion-padding-vertical ">
-                        <ion-button   (click)="guardar()">Guardar</ion-button>
+                        <ion-button  (click)="guardarContacto()">Guardar</ion-button>
                     </div>
                 </ion-item>
             </ion-list>
