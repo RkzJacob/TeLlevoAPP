@@ -67,7 +67,7 @@ export class GooglemapsComponent implements OnInit {
 
     let mapOptions = {
           center: latLng,
-          zoom: 15,
+          zoom: 8,
           disableDefaultUI: true,
           clickableIcons: false,
     };
