@@ -9,7 +9,12 @@
     <ion-card-header>
       <ion-title class="ion-text-center">Datos</ion-title>
     </ion-card-header>
-    <ion-item (click)="agregarDireccion()">
+    <ion-item>
+      <ion-chip>
+        <ion-input [(ngModel)]="lugar" type="text" id="autocomplete" class="in" placeholder="ingrese direccion"></ion-input>
+      </ion-chip>
+    </ion-item>
+    <ion-item (click)="agregarDireccion()" >
       <ion-label>
         ubicacion
       </ion-label>
@@ -17,7 +22,6 @@
         <ion-button>
             <ion-icon slot="icon-only" color="danger" name="location"></ion-icon>
         </ion-button>
-
       </ion-buttons>
     </ion-item>
   </ion-card>

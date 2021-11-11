@@ -3,6 +3,7 @@ import { Component, ElementRef, Inject, Input, OnInit, Renderer2, ViewChild } fr
 import { ModalController } from '@ionic/angular';
 import { GooglemapsService } from './googlemaps.service';
 import { Geolocation } from '@capacitor/geolocation';
+import { ActivatedRoute, Router ,NavigationExtras} from '@angular/router';
 
 
 declare var google: any;
@@ -15,7 +16,8 @@ declare var google: any;
 })
 export class GooglemapsComponent implements OnInit {
       
-
+   
+   
    @Input() position = {   
             lat: -33.033482306658186,
             lng: -71.53321628883083
@@ -30,6 +32,7 @@ export class GooglemapsComponent implements OnInit {
   marker:any;
   infowindow:any;
   positionSet:any;
+  lugar:any;
   
 
   @ViewChild('map') divMap: ElementRef;
@@ -37,7 +40,9 @@ export class GooglemapsComponent implements OnInit {
   constructor(private renderer:Renderer2,
     @Inject(DOCUMENT) private document,
     private googlemapsService:GooglemapsService,
-    public modalController:ModalController) { }
+    public modalController:ModalController,
+    private activeRoute:ActivatedRoute,
+    private route:Router) { }
 
   ngOnInit():void {
     this.init();
@@ -66,7 +71,6 @@ export class GooglemapsComponent implements OnInit {
           disableDefaultUI: true,
           clickableIcons: false,
     };
-
     
       this.map = new google.maps.Map(this.divMap.nativeElement, mapOptions);
       this.marker = new google.maps.Marker({
@@ -74,6 +78,31 @@ export class GooglemapsComponent implements OnInit {
                   animation: google.maps.Animation.DROP,
                   draggable: false,
       });
+      //cargar ruta
+      var objConfigDR={
+            map:this.map
+      }
+      var objConfigDS={
+            origin:latLng,
+            destination:this.lugar,
+            travelMode:google.maps.TravelMode.DRIVING
+      }
+      
+      var ds = new google.maps.DirectionsService();
+      var dr= new google.maps.DirectionsRenderer(objConfigDR);
+
+      ds.route(objConfigDS,fnRutear);
+      function fnRutear(resultados,status){
+            if (status=='OK') {
+                  dr.setDirections(resultados);
+            }else{
+                  alert('error'+status);
+            }
+
+      }
+     
+      
+      
 
     this.clickHandleEvent();
     this.infowindow = new google.maps.InfoWindow();
@@ -119,7 +148,7 @@ setInfoWindow(marker: any, titulo: string, subtitulo: string) {
                             '</div>' +
                             '</div>';
     this.infowindow.setContent(contentString);
-    this.infowindow.open(this.map, marker);
+    this.infowindow.open(this.map, marker);  
 
 }
 async mylocation() {

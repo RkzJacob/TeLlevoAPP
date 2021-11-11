@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
 import { ModalController } from '@ionic/angular';
 import { GooglemapsComponent } from 'src/app/Components/googlemaps/googlemaps.component';
-
+import {  NavigationExtras} from '@angular/router';
 
 
 
@@ -16,6 +16,7 @@ export class ApiPage implements OnInit {
   
 
   ubicacion=null;
+  lugar:any;
   
   constructor(private api:ApiService,private router:Router,private modalController:ModalController) { }
 
@@ -31,8 +32,9 @@ export class ApiPage implements OnInit {
   }
   ngOnInit() {
   }
-
+  
   async agregarDireccion() {
+    
 
     const ubicacion = this.ubicacion;
     let positionInput = {  
@@ -47,7 +49,9 @@ export class ApiPage implements OnInit {
       component: GooglemapsComponent,
       mode: 'ios',
       swipeToClose: true,
-      componentProps: {position: positionInput}
+      componentProps: {position: positionInput,lugar:this.lugar},
+      
+      
     });
     await modalAdd.present();
 
