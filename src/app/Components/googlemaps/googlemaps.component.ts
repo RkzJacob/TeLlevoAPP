@@ -16,14 +16,14 @@ declare var google: any;
 export class GooglemapsComponent implements OnInit {
       
 
-   @Input() position = {  
-            lat: -2.898116,
-            lng: -78.99958149999999
+   @Input() position = {   
+            lat: -33.033482306658186,
+            lng: -71.53321628883083
   }; 
   
   label={
       titulo:'Ubicacion',
-      subtitulo:'Mi ubicación'
+      subtitulo:'Mi ubicación',
   }
 
   map:any;
@@ -41,7 +41,6 @@ export class GooglemapsComponent implements OnInit {
 
   ngOnInit():void {
     this.init();
-
     console.log('position ->', this.position)
 
 
@@ -113,7 +112,7 @@ setInfoWindow(marker: any, titulo: string, subtitulo: string) {
     const contentString  =  '<div id="contentInsideMap">' +
                             '<div>' +
                             '</div>' +
-                            '<p style="font-weight: bold; margin-bottom: 5px;">' + titulo + '</p>' +
+                            '<p style="font-weight: bold ; margin-bottom: 5px; color=red;">' + titulo + '</p>' +
                             '<div id="bodyContent">' +
                             '<p class"normal m-0">'
                             + subtitulo + '</p>' +

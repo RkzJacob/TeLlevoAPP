@@ -8,8 +8,8 @@ declare var google:any;
 })
 export class GooglemapsService {
 
-  apiKey='AIzaSyBQphcqDrKtqz40kEw6NIYaASohpQ_-71w';
-  cargarMapa=false; 
+  apiKey='AIzaSyA2yDsOwYlTVfyk-3hvh3hdYXbMAIt2JBI';
+  mapsLoaded =false; 
 
 
   constructor() { }
@@ -17,16 +17,18 @@ export class GooglemapsService {
   init(renderer:any,document:any): Promise<any>{ 
     
     return new Promise((resolve)=>{
-      if(this.cargarMapa){
+      if(this.mapsLoaded ){
         console.log('ya ha sido cargado el mapa')
         resolve(true);
         return;
       }
+
+
       const script =renderer.createElement('script');
       script.id = 'googleMaps';
 
       window['mapInit'] = () => {
-        this.cargarMapa = true;
+        this.mapsLoaded  = true;
         if (google) {
            console.log('google is loaded')
         } else {
@@ -35,6 +37,8 @@ export class GooglemapsService {
         resolve(true);
         return;
     }
+
+    
     if(this.apiKey){
         script.src = 'https://maps.googleapis.com/maps/api/js?key=' + this.apiKey + '&callback=mapInit';
     } else {

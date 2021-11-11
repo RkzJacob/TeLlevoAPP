@@ -35,4 +35,5 @@ export class ConfigPage implements OnInit {
     this.router.navigate(['/pagina-principal']);
   }
   
+  
 }

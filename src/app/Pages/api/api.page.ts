@@ -13,12 +13,8 @@ import { GooglemapsComponent } from 'src/app/Components/googlemaps/googlemaps.co
   styleUrls: ['./api.page.scss'],
 })
 export class ApiPage implements OnInit {
-  n1:any;
-  n2:any;
-  n3:any;
-  n4:any;
-  n5:any;
-  n6:any;
+  
+
   ubicacion=null;
   
   constructor(private api:ApiService,private router:Router,private modalController:ModalController) { }
@@ -40,9 +36,9 @@ export class ApiPage implements OnInit {
 
     const ubicacion = this.ubicacion;
     let positionInput = {  
-      lat: -2.898116,
-      lng: -78.99958149999999,
-    };
+        lat: -33.033482306658186,
+        lng: -71.53321628883083
+  };
     if (ubicacion !== null) {
         positionInput = ubicacion; 
     }
