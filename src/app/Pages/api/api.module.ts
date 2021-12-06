@@ -12,7 +12,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import { ReactiveFormsModule } from '@angular/forms';
-import { GooglemapsComponent } from 'src/app/Components/googlemaps/googlemaps.component';
+
 
 
 @NgModule({
@@ -27,6 +27,6 @@ import { GooglemapsComponent } from 'src/app/Components/googlemaps/googlemaps.co
     MatIconModule,
     ReactiveFormsModule
   ],
-  declarations: [ApiPage,GooglemapsComponent]
+  declarations: [ApiPage]
 })
 export class ApiPageModule {}

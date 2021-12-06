@@ -8,12 +8,12 @@
             <ion-list color="medium">
                 <ion-item color="medium">
                     <div class="ion-padding-vertical">
-                        <ion-input [(ngModel)]="newContacto.strNombre" type="text" placeholder="Ingrese nombre"  inputmode="text"></ion-input>
+                        <ion-input [(ngModel)]="newContacto.strNombre" type="text" placeholder="Ingrese nombre"  inputmode="text" [formControl]="userCtrl"></ion-input>
                     </div>
                 </ion-item>
                 <ion-item color="medium"> 
                     <div class="ion-padding-vertical">
-                        <ion-input [(ngModel)]="newContacto.strNro" type="number" placeholder="Ingrese Numero"  inputmode="numeric"></ion-input>
+                        <ion-input [(ngModel)]="newContacto.strNro" type="number" placeholder="Ingrese Numero"  inputmode="numeric" [formControl]="NroCtrl"></ion-input>
                     </div>
                 </ion-item>
                 <ion-item color="medium">

@@ -2,9 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 import { IonicStorageModule } from '@ionic/storage-angular';
-
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
-
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -32,13 +30,13 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
   ],
   imports: [
    BrowserModule,
-   IonicModule.forRoot(),
+   IonicModule.forRoot({animated:true,mode:'md',hardwareBackButton:false}),
    AppRoutingModule,
    BrowserAnimationsModule,
    IonicStorageModule.forRoot(),
    HttpClientModule,AgmCoreModule.forRoot({apiKey:'AIzaSyDNqZy4w_uAD4IyonGOSv4YLeDeQngGmXU'}),
    AngularFireModule.initializeApp(environment.firebase),
-   AngularFirestoreModule
+   AngularFirestoreModule,
   ],
   providers: [
     AuthService, 

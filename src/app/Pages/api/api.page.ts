@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
 import { ModalController } from '@ionic/angular';
 import { GooglemapsComponent } from 'src/app/Components/googlemaps/googlemaps.component';
-import {  NavigationExtras} from '@angular/router';
+import { ContactoService } from 'src/app/services/contacto.service';
+import { Conductores } from 'src/app/interfaces/conductores';
+
 
 
 
@@ -13,29 +15,36 @@ import {  NavigationExtras} from '@angular/router';
   styleUrls: ['./api.page.scss'],
 })
 export class ApiPage implements OnInit {
-  
+  cnd:any;
+
+  conductores: Conductores[]=[];
+
+  newConductor: Conductores={
+    strNombre:'',
+    strApellido:'',
+    id:this.database.getId()
+  }
+  private path='Conductor/';
 
   ubicacion=null;
   lugar:any;
   
-  constructor(private api:ApiService,private router:Router,private modalController:ModalController) { }
+  
+  constructor(private api:ApiService,private router:Router,private modalController:ModalController,public database:ContactoService) { }
 
   ionViewWillEnter(){
    
   }
 
-
-  
-  
   salir(){
     this.router.navigate(['/pagina-principal']);
   }
+  
   ngOnInit() {
+    this.getContactos();
   }
   
   async agregarDireccion() {
-    
-
     const ubicacion = this.ubicacion;
     let positionInput = {  
         lat: -33.033482306658186,
@@ -56,6 +65,23 @@ export class ApiPage implements OnInit {
     await modalAdd.present();
 
   }
+  getContactos(){
+    this.database.getCollection<Conductores>(this.path).subscribe(   res => {
+        this.conductores =res;
+    });
+
+  }
+  Viajar(){
+    
+    //guardo los datos del nombre de usuario
+    let navigationExtra: NavigationExtras={
+      state:{lugar: this.lugar}
+    }
+    this.router.navigate(['/viaje'],navigationExtra);
+    
+  }
+
+
 
 
 }

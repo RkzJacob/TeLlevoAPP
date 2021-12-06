@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import {  NavigationExtras, Router } from '@angular/router';
-import { LoadingController } from '@ionic/angular';
+import { LoadingController, ToastController } from '@ionic/angular';
 import { BdLocalService } from 'src/app/services/bd-local.service';
 
 
@@ -26,7 +26,7 @@ export class HomePage implements OnInit{
   userCtrl= new FormControl('',[Validators.required,Validators.minLength(2),Validators.maxLength(15)]);
   contraCtrl=new FormControl('',[Validators.required,Validators.minLength(6),Validators.maxLength(30)]);
   //crear componentes de los imports que usare
-  constructor(private router: Router,private loadingCtrl: LoadingController,private bdLocal: BdLocalService
+  constructor(private router: Router,private loadingCtrl: LoadingController,private bdLocal: BdLocalService,public toastController: ToastController
     ) {
   }
 
@@ -89,10 +89,21 @@ export class HomePage implements OnInit{
           },3000)
         })
     }else{
-      return 'ERROR'
+      this.toastController.create({
+        message: "Ingrese un usuario y contraseña valida"
+      }).then((loading)=>{
+        loading.present();
+        setTimeout(()=>{
+        loading.dismiss();
+        },3000)
+      })
+      
     }
   }
   //////////////////
+  Registrar(){
+    this.router.navigate(['/register']);
+  }
   
   
 

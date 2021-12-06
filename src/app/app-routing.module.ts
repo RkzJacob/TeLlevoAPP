@@ -33,7 +33,15 @@ const routes: Routes = [
   {
     path: 'api',
     loadChildren: () => import('./pages/api/api.module').then( m => m.ApiPageModule)
+  },  {
+    path: 'register',
+    loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule)
   },
+  {
+    path: 'viaje',
+    loadChildren: () => import('./pages/viaje/viaje.module').then( m => m.ViajePageModule)
+  },
+
 ];
 
 @NgModule({

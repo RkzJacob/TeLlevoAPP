@@ -1,18 +1,24 @@
 <ion-header >
   <ion-toolbar color="tertiary"> 
-    <ion-title>Dirección</ion-title>
+    <ion-title class="ion-text-center">Dirección</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-card>
     <ion-card-header>
-      <ion-title class="ion-text-center">Datos</ion-title>
+      <ion-title>Datos</ion-title>
     </ion-card-header>
     <ion-item>
       <ion-chip>
         <ion-input [(ngModel)]="lugar" type="text" id="autocomplete" class="in" placeholder="ingrese direccion"></ion-input>
       </ion-chip>
+    </ion-item>
+    <ion-item > 
+      <ion-label>Conductor</ion-label>
+      <ion-select placeholder="Selecciona un conductor">
+        <ion-select-option [(ngModel)]="cnd"  *ngFor="let conductor of conductores">{{conductor.strNombre + ' ' + conductor.strApellido}}</ion-select-option>
+      </ion-select>
     </ion-item>
     <ion-item (click)="agregarDireccion()" >
       <ion-label>
@@ -23,6 +29,11 @@
             <ion-icon slot="icon-only" color="danger" name="location"></ion-icon>
         </ion-button>
       </ion-buttons>
+    </ion-item>
+    <ion-item >
+      <div class="boton-position">
+      <button mat-raised-button color="primary" type="submit" (click)="Viajar()" >Viajar</button>
+      </div>
     </ion-item>
   </ion-card>
 

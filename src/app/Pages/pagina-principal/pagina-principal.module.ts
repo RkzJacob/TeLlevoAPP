@@ -27,6 +27,6 @@ import { GooglemapsComponent } from 'src/app/Components/googlemaps/googlemaps.co
     MatIconModule,
     ReactiveFormsModule
   ],
-  declarations: [PaginaPrincipalPage,GooglemapsComponent]
+  declarations: [PaginaPrincipalPage]
 })
 export class PaginaPrincipalPageModule {}

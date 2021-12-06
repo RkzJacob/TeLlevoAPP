@@ -1,0 +1,35 @@
+<ion-header >
+  <ion-toolbar color="tertiary"> 
+    <ion-title class="ion-text-center">Viaje</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-title>Datos viaje</ion-title>
+    </ion-card-header>
+    <ion-item>
+      <ion-label>Destino<ion-text>: {{lugar}} </ion-text></ion-label>
+    </ion-item>
+    <ion-item > 
+      <ion-label>Tarifa<ion-text>: {{r}} </ion-text></ion-label>
+    </ion-item>
+    <ion-item>
+        <button mat-raised-button color="primary" type="submit" (click)="aceptar()" >Aceptar</button>
+    </ion-item>
+  </ion-card>
+
+</ion-content>
+<ion-footer>
+  <ion-toolbar color="tertiary"> 
+    <ion-row class="ion-no-border paddings">
+      <ion-col size="4" >
+      <button mat-icon-button color="success" >
+        <mat-icon aria-hidden="false" aria-label="salir" (click)="salir()">reply_all</mat-icon>
+      </button>
+    </ion-col>
+  </ion-row>
+
+  </ion-toolbar>
+</ion-footer>
