@@ -23,7 +23,7 @@ export class Cmp1Component  implements OnInit{
 
   private path='Contacto/';
   userCtrl= new FormControl('',[Validators.required,Validators.minLength(2),Validators.maxLength(15)]);
-  contraCtrl=new FormControl('',[Validators.required,Validators.minLength(1),Validators.maxLength(9)]);
+  NroCtrl=new FormControl('',[Validators.required,Validators.minLength(1),Validators.maxLength(9)]);
   constructor(public database:ContactoService,public toastController: ToastController) { }
 
   ngOnInit(){
@@ -43,21 +43,21 @@ export class Cmp1Component  implements OnInit{
   }
   //obtener errores de contraseña en el form
   obtenerErrorForm2(){
-    if (this.contraCtrl.hasError('required')) {
+    if (this.NroCtrl.hasError('required')) {
       return 'Ingrese una contraseña';
     
     }
-    else if(this.contraCtrl.hasError('minlength')){
+    else if(this.NroCtrl.hasError('minlength')){
       return 'Largo pequeño';
-    }else if(this.contraCtrl.hasError('maxlength')){
+    }else if(this.NroCtrl.hasError('maxlength')){
       return 'Limite superado';
     }
   }
 
   guardarContacto(){
     if (!this.userCtrl.hasError('required') && !this.userCtrl.hasError('minlength') && !this.userCtrl.hasError('maxlength') &&
-    !this.contraCtrl.hasError('required') && !this.contraCtrl.hasError('minlength') && !this.contraCtrl.hasError('maxlength')) {
-      console.log('nombre = ',this.newContacto.strNombre)
+    !this.NroCtrl.hasError('required') && !this.NroCtrl.hasError('minlength') && !this.NroCtrl.hasError('maxlength')) {
+      
     
       this.database.crearDoc(this.newContacto,this.path,this.newContacto.id);
   

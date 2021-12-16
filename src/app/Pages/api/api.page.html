@@ -1,26 +1,28 @@
 <ion-header >
-  <ion-toolbar color="tertiary"> 
-    <ion-title class="ion-text-center">Dirección</ion-title>
+  <ion-toolbar color="primary" class="color-header" > 
+    <ion-title class="ion-text-center">DIRECCIÓN</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-card>
+  <ion-card class="color-card">
     <ion-card-header>
-      <ion-title>Datos</ion-title>
+      <ion-title class="s">Destino</ion-title>
     </ion-card-header>
-    <ion-item>
-      <ion-chip>
-        <ion-input [(ngModel)]="lugar" type="text" id="autocomplete" class="in" placeholder="ingrese direccion"></ion-input>
-      </ion-chip>
+    <ion-item class="color-card">
+      <mat-form-field  appearance="legacy">
+        <mat-label class="color-card">DESTINO</mat-label>
+        <input matInput  type="text" [(ngModel)]="lugar" type="text"  class="in" placeholder="ingrese direccion" [formControl]="viajeCtrl" required>
+        <mat-error *ngIf="viajeCtrl.invalid">{{obtenerErrorForm()}}</mat-error>
+      </mat-form-field>
     </ion-item>
-    <ion-item > 
+    <ion-item class="color-card"> 
       <ion-label>Conductor</ion-label>
       <ion-select placeholder="Selecciona un conductor">
         <ion-select-option [(ngModel)]="cnd"  *ngFor="let conductor of conductores">{{conductor.strNombre + ' ' + conductor.strApellido}}</ion-select-option>
       </ion-select>
-    </ion-item>
-    <ion-item (click)="agregarDireccion()" >
+    </ion-item >
+    <ion-item (click)="agregarDireccion()" class="color-card">
       <ion-label>
         ubicacion
       </ion-label>
@@ -38,8 +40,8 @@
   </ion-card>
 
 </ion-content>
-<ion-footer>
-  <ion-toolbar color="tertiary"> 
+<ion-footer >
+  <ion-toolbar color="primary" class="color-header"> 
     <ion-row class="ion-no-border paddings">
       <ion-col size="4" >
       <button mat-icon-button color="success" >
@@ -47,6 +49,5 @@
       </button>
     </ion-col>
   </ion-row>
-
-  </ion-toolbar>
+  </ion-toolbar >
 </ion-footer>

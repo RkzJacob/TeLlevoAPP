@@ -1,56 +1,54 @@
-<ion-header class="HEADER-LOGIN"  >
-  <ion-toolbar color="tertiary">
+<ion-header>
+  <ion-toolbar   color="primary" class="color-header" >
     <ion-title class="ion-text-center" >
       <ion-icon name="bus"></ion-icon>
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content CLASS="CONTENIDO-DEL-LOGIN no-scroll" color="dark" [fullscreen]="true" >
-  <div class="ion-padding-vertical ">
-    <ion-card color="medium">
-      <ion-card-header>
-        <ion-card-title class="ion-text-center" >Login</ion-card-title>
+<ion-content color="dark" [fullscreen]="true" >
+  <div>
+    <ion-card class="s">
+      <ion-card-header  class="s"> 
+        <ion-card-title class="ion-text-center xd">LOGIN</ion-card-title>
       </ion-card-header>
           
-      <ion-card-content color="medium" >
-          <ion-list  color="medium">
-            <ion-item  color="medium">
-              <div  class="ion-padding-vertical" >
-                    <mat-form-field  appearance="standard">
+      <ion-card-content  class="s">
+          <ion-list class="s">
+              <div class="s">
+                    <mat-form-field >
                       <mat-label >Nombre usuario</mat-label>
                       <input matInput  type="text" [(ngModel)]="NombreUser" [formControl]="userCtrl" required>
                       <mat-error *ngIf="userCtrl.invalid">{{obtenerErrorForm()}}</mat-error>
-                      
                     </mat-form-field>
-                    <mat-form-field  appearance="standard">
+              
+                    <mat-form-field >
                       <mat-label >Contraseña</mat-label>
                       <input matInput  type="password" [(ngModel)]="Contrasena" [formControl]="contraCtrl" required>
                       <mat-error *ngIf="contraCtrl.invalid">{{obtenerErrorForm2()}}</mat-error>
                     </mat-form-field>  
               </div>
-            </ion-item>
+            </ion-list>
+
+              <div class="boton-position ion-padding-vertical">
+                <button mat-raised-button class="color-butn"  (click)="loguear()" >Iniciar sesión</button>
+              </div>
               
-              <div class="boton-position ion-padding-vertical color-butn">
-                <button mat-raised-button color="primary" type="submit" (click)="loguear()" >Iniciar sesión</button>
+              <div class="boton-position ion-padding-vertical ">
+                <ion-text class="ion-text-center xd" (click)="Registrar()" >Registrarse</ion-text>
               </div>
-              <div class="boton-position ion-padding-vertical color-butn">
-                <ion-text class="ion-text-center"(click)="Registrar()" color="primary">Registrarse</ion-text>
-              </div>
-          </ion-list>
       </ion-card-content>
     </ion-card>
 </div>
   
 
   <div class="ion-text-center">
-      <ion-text (click)="recuperar()" color="primary">¿Olvidaste tu contraseña?</ion-text>
+      <ion-text (click)="recuperar()" class="xd2">¿Olvidaste tu contraseña?</ion-text>
   </div>
 </ion-content>
 
 
-<ion-footer class="ion-no-border bar-balanced" >
-</ion-footer>
+
 
 
 

@@ -1,5 +1,5 @@
-<ion-header class="HEADER-LOGIN"  >
-  <ion-toolbar color="tertiary">
+<ion-header   >
+  <ion-toolbar color="primary" class="color-header">
     <ion-title class="ion-text-center" >
       <ion-icon name="bus"></ion-icon>
     </ion-title>
@@ -8,35 +8,35 @@
 
 <ion-content CLASS="CONTENIDO-DEL-LOGIN no-scroll" color="dark" [fullscreen]="true" >
   <div class="ion-padding-vertical ">
-    <ion-card color="medium">
+    <ion-card class="s">
       <ion-card-header>
-        <ion-card-title class="ion-text-center" >Register</ion-card-title>
+        <ion-card-title class="ion-text-center xd2" >REGISTRARSE</ion-card-title>
       </ion-card-header>
           
-      <ion-card-content color="medium" >
-          <ion-list  color="medium">
-            <ion-item  color="medium">
+      <ion-card-content class="s">
+          <ion-list  class="s">
+            
               <div  class="ion-padding-vertical" >
-                    <mat-form-field  appearance="standard">
+                    <mat-form-field  appearance="legacy">
                       <mat-label >Nombre usuario</mat-label>
                       <input matInput  type="text" [(ngModel)]="newUsuario.strNombre" [formControl]="userCtrl" required>
                       <mat-error *ngIf="userCtrl.invalid">{{obtenerErrorForm()}}</mat-error>
                       
                     </mat-form-field>
-                    <mat-form-field  appearance="standard">
+                    <mat-form-field  appearance="legacy">
                       <mat-label >Contraseña</mat-label>
                       <input matInput  type="password" [(ngModel)]="newUsuario.strPassword" [formControl]="contraCtrl" required>
                       <mat-error *ngIf="contraCtrl.invalid">{{obtenerErrorForm2()}}</mat-error>
                     </mat-form-field>
-                    <mat-form-field  appearance="standard">
+                    <mat-form-field  appearance="legacy">
                       <mat-label >Correo</mat-label>
                       <input matInput  type="email" [(ngModel)]="newUsuario.strCorreo" [formControl]="CorreoCtrl" required>
                       <mat-error *ngIf="CorreoCtrl.invalid">{{obtenerErrorForm3()}}</mat-error>
                     </mat-form-field>   
               </div>
-            </ion-item>
+            
               
-              <div class="boton-position ion-padding-vertical color-butn">
+              <div class="boton-position ion-padding-vertical ">
                 <button mat-raised-button color="primary" type="submit" (click)="Registrar()" >Registrar</button>
               </div>
               

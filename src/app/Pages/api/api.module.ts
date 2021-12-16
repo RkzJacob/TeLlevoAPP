@@ -12,6 +12,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 
 
@@ -22,10 +23,11 @@ import { ReactiveFormsModule } from '@angular/forms';
     IonicModule,
     ApiPageRoutingModule,
     MatRadioModule,
+    MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatIconModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatIconModule
   ],
   declarations: [ApiPage]
 })
